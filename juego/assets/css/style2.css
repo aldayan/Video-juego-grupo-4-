@@ -1,0 +1,25 @@
+body {
+    background: url("../../imagenes/ala.gif");
+    background-size: 100%;
+    margin: 0;
+}
+
+h1 {
+    color: aliceblue;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+}
+
+h2 {
+    color: aliceblue;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+}
+
+a {
+    position: relative;
+    left: 45%;
+    top: 50%;
+}
