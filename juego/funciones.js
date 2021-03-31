@@ -82,7 +82,7 @@ function Bala(x, y, w) {
     this.dibuja = function() {
         ctx.save();
         ctx.fillStyle = "red";
-        ctx.fillRect(this.x, this.y, this.w, this.w);
+        ctx.fillRect(this.y, this.x, this.w, this.w);
         this.y = this.y - 6;
         ctx.restore();
     };
@@ -97,17 +97,17 @@ function nave(x) {
     this.dibuja = function(x) {
         this.x = x;
         if (imgAni2 < 5) {
-            ctx.drawImage(imgNave, 0, 0, 32, 32, this.x, this.y, 35, 35);
+            ctx.drawImage(imgNave, 0, 0, 32, 32, this.y, this.x, 35, 35);
             imgAni2 = imgAni2 + 1;
             imgAni = imgAni + 1;
             checarBalas();
             //setInterval(checarBalas(),1000);
         } else if (imgAni2 < 10) {
-            ctx.drawImage(imgNave, 32, 0, 32, 32, this.x, this.y, 35, 35);
+            ctx.drawImage(imgNave, 32, 0, 32, 32, this.y, this.x, 35, 35);
             imgAni2 = imgAni2 + 1;
             imgAni = imgAni + 1;
         } else {
-            ctx.drawImage(imgNave, 32, 0, 32, 32, this.x, this.y, 35, 35);
+            ctx.drawImage(imgNave, 32, 0, 32, 32, this.y, this.x, 35, 35);
             imgAni2 = 0;
         }
 
@@ -145,14 +145,14 @@ function Enemigo(x, y) {
         }
         if (this.vive) {
             if (imgAni < 4) {
-                ctx.drawImage(imgOvni, 0, 0, 32, 32, this.x, this.y, 35, 35);
+                ctx.drawImage(imgOvni, 0, 0, 32, 32, this.y, this.x, 35, 35);
                 //           (imgFile, xini, yini, wimg, himg, xpos  , ypos  , wrez, hrez)
             } else if (imgAni < 8) {
-                ctx.drawImage(imgOvni, 32, 0, 32, 32, this.x, this.y, 35, 35);
+                ctx.drawImage(imgOvni, 32, 0, 32, 32, this.y, this.x, 35, 35);
             } else if (imgAni < 12) {
-                ctx.drawImage(imgOvni, 64, 0, 32, 32, this.x, this.y, 35, 35);
+                ctx.drawImage(imgOvni, 64, 0, 32, 32, this.y, this.x, 35, 35);
             } else if (imgAni > 11) {
-                ctx.drawImage(imgOvni, 0, 0, 32, 32, this.x, this.y, 35, 35);
+                ctx.drawImage(imgOvni, 0, 0, 32, 32, this.y, this.x, 35, 35);
                 imgAni = 0;
             }
         } else {
