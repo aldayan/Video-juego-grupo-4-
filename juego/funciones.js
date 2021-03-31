@@ -4,16 +4,17 @@ INICIO
 ***************/
 
 window.onload = function() {
-        canvas = document.getElementById("miCanvas");
+        canvas = document.getElementById("Canvas");
         if (canvas && canvas.getContext) {
             ctx = canvas.getContext("2d");
             if (ctx) {
                 x = canvas.width / 2;
-                mensaje("Alien vs Ballon");
+                mensaje("Empecemos");
+
                 imgNave = new Image();
                 imgOvni = new Image();
-                imgOvni.src = "imagenes/Capra.png";
-                imgNave.src = "imagenes/galushi.png";
+                imgOvni.src = "imagenes/galushi.png ";
+                imgNave.src = "imagenes/nana.png";
                 imgNave.onload = function() {
                     nave = new nave(0);
                 }
@@ -53,8 +54,8 @@ VARIABLES
 var canvas, ctx;
 var x = 100;
 var y = 100;
-var teclaIzquierda = 37;
-var teclaDerecha = 39;
+var teclaAbajo = 40;
+var teclaArriba = 38;
 var teclaEspacio = 32;
 var imgNave, imgOvni;
 var municion = 100;
@@ -223,7 +224,7 @@ function gameOver() {
     if (enemigosVivos == 0) {
         mensaje("GANASTE");
     } else {
-        mensaje("GAME OVER");
+        mensaje("PERDISTE");
     }
     endGame = true;
     clearTimeout(disparoEnemigo);
@@ -231,7 +232,7 @@ function gameOver() {
 
 function score() {
     ctx.save();
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     ctx.clearRect(0, 0, canvas.width, 20);
     ctx.font = "bold 12px Courier";
     ctx.fillText("SCORE: " + puntos, 10, 20);
@@ -240,7 +241,7 @@ function score() {
 
 function municiones() {
     ctx.save();
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "black";
     ctx.clearRect(0, 20, canvas.width, 20);
     ctx.font = "bold 12px Courier";
     ctx.fillText("Municion: " + municion, 10, 40);
@@ -248,8 +249,8 @@ function municiones() {
 }
 
 function verifica() {
-    if (tecla[teclaDerecha]) x += 5;
-    if (tecla[teclaIzquierda]) x -= 5;
+    if (tecla[teclaAbajo]) x += 5;
+    if (tecla[teclaArriba]) x -= 5;
     //Verifica cañon
     if (x > canvas.width - 20) x = canvas.width - 20;
     if (x < 0) x = 0;
